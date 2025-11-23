@@ -1,0 +1,21 @@
+.newsletter-background {
+    background-color: var(--darker-green);
+    color: var(--main-white);
+}
+
+.newsletter-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.newsletter-content a {
+    padding: 0 0.5rem;
+    color: var(--main-white);
+    transition: color 0.2s ease-in-out;
+}
+
+.newsletter-content a:hover {
+    color: var(--soft-black);
+}

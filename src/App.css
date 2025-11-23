@@ -1,0 +1,16 @@
+:root {
+  --main-white: #FFF9F2;
+  --bright-blue: #6BABC2;
+  --darker-blue: #305473;
+  --bright-green:CCF47C;
+  --darker-green: #6A9911;
+  --soft-black: #0A0A0A;
+}
+
+body {
+  background-color: var(--main-white);
+}
+
+.Container {
+  max-width: 1800px;
+}
