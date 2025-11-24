@@ -17,7 +17,52 @@ grid-template-columns: repeat(4, 1fr);
 gap: 2rem;
 }
 
-/* Mobile */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.pageButton {
+    background: transparent;
+    border: 1px solid var(--darker-blue, #333);
+    color: var(--darker-blue, #333);
+    padding: 0.5rem 1rem;
+    margin: 0 0.3rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.pageButton.active {
+    background: var(--darker-blue);
+    color: white;
+    border-color: var(--darker-blue);
+}
+
+.pageButton:hover:not(:disabled):not(.active) {
+    background-color: #f0f0f0;
+    transform: translateY(-1px);
+}
+
+.pageButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pageButton.prev-next {
+    padding: 0.5rem 0.8rem;
+}
+
+.maincards-button {
+    display: block;
+    width: fit-content;
+}
+
 @media (max-width: 900px) {
 .cards-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -59,30 +104,8 @@ margin: 0 1rem 1.5rem;
 opacity: 0.85;
 }
 
-/* Pagination Dots */
-.cards-dots {
-display: flex;
-justify-content: center;
-margin: 2rem 0;
-gap: 0.7rem;
-}
-
-.dot {
-width: 14px;
-height: 14px;
-border-radius: 50%;
-background: rgba(0,0,0,0.3);
-border: none;
-cursor: pointer;
-}
-
-.dot.active {
-background: var(--darker-blue);
-}
-
-/* Button */
 .maincards-button {
-display: inline-block;
+display: flex;
 margin: 0 auto;
 text-align: center;
 background: var(--darker-blue);

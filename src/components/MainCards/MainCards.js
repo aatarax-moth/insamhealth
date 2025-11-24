@@ -4,12 +4,21 @@ import "./MainCards.css";
 
 const MainCards = ({ title, data, link }) => {
   const pageSize = 4;
+  // Calculate total pages based on the length of the 'data' array
   const totalPages = Math.ceil(data.length / pageSize);
 
   const [page, setPage] = useState(0);
 
   const start = page * pageSize;
   const visibleCards = data.slice(start, start + pageSize);
+
+  // Function to change the current page
+  const handlePageChange = (newPage) => {
+    // Ensure the new page number is within the valid range (0 to totalPages - 1)
+    if (newPage >= 0 && newPage < totalPages) {
+      setPage(newPage);
+    }
+  };
 
   return (
     <section className="maincards">
@@ -26,18 +35,39 @@ const MainCards = ({ title, data, link }) => {
           ))}
         </div>
 
-        <div className="cards-dots">
-          {Array.from({ length: totalPages }).map((_, i) => (
+        {/* 🚀 New Pagination Block Below the Grid */}
+        <div className="pagination-controls">
+          {/* Previous Page Button */}
+          <button 
+            onClick={() => handlePageChange(page - 1)}
+            disabled={page === 0}
+            className="pageButton prev-next"
+          >
+            &lt;
+          </button>
+          
+          {/* Render Page Number Buttons */}
+          {Array.from({ length: totalPages }, (_, index) => (
             <button
-                key={i}
-                className={`dot ${i === page ? "active" : ""}`}
-                onClick={() => setPage(i)}
-                >
-                <span className="sr-only">Go to page {i + 1}</span>
+              key={index}
+              onClick={() => handlePageChange(index)}
+              className={`pageButton ${page === index ? 'active' : ''}`}
+            >
+              {index + 1}
             </button>
           ))}
-        </div>
 
+          {/* Next Page Button */}
+          <button 
+            onClick={() => handlePageChange(page + 1)}
+            disabled={page === totalPages - 1}
+            className="pageButton prev-next"
+          >
+            &gt;
+          </button>
+        </div>
+        
+        {/* The original link button */}
         <a href={link} className="maincards-button">
           Go To Page
         </a>
