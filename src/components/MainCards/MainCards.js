@@ -4,7 +4,7 @@ import "./MainCards.css";
 
 const MainCards = ({ title, data, link }) => {
   const pageSize = 4;
-  // Calculate total pages based on the length of the 'data' array
+  
   const totalPages = Math.ceil(data.length / pageSize);
 
   const [page, setPage] = useState(0);
@@ -12,9 +12,7 @@ const MainCards = ({ title, data, link }) => {
   const start = page * pageSize;
   const visibleCards = data.slice(start, start + pageSize);
 
-  // Function to change the current page
   const handlePageChange = (newPage) => {
-    // Ensure the new page number is within the valid range (0 to totalPages - 1)
     if (newPage >= 0 && newPage < totalPages) {
       setPage(newPage);
     }

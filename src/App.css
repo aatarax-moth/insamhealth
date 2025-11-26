@@ -1,14 +1,20 @@
 :root {
-  --main-white: #FFF9F2;
+  --main-white: #fffdfa;
   --bright-blue: #6BABC2;
   --darker-blue: #305473;
-  --bright-green:CCF47C;
+  --bright-green:#CCF47C;
   --darker-green: #6A9911;
   --soft-black: #0A0A0A;
+  --rgb-darker-blue: 48, 84, 115;
 }
 
 body {
   background-color: var(--main-white);
+  background-image: url('/public/assets/images/blob-bg.svg');
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+  background-size: cover;
+  position: relative;
 }
 
 .Container {

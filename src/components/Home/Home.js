@@ -2,10 +2,12 @@ import MainCards from "../MainCards/MainCards";
 import cardsFitness from "../../data/cardsFitness";
 import cardsSupplements from "../../data/cardsSupplements";
 import cardsBodyCare from "../../data/cardsBodyCare";
+import Hero from "../Hero/Hero";
 
 function Home() {
   return (
     <>
+      <Hero/>
       <MainCards
         title="Fitness Products"
         data={cardsFitness}

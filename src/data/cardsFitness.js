@@ -46,6 +46,30 @@ const cardsFitness = [
         title: "Title Eight",
         image: "/assets/images/placeholder.webp",
         description: "Quis nostrud labore labore id sit."
+    },
+    {
+        id: 9,
+        title: "Title Nine",
+        image: "/assets/images/placeholder.webp",
+        description: "Quis nostrud labore labore id sit."
+    },
+    {
+        id: 10,
+        title: "Title Ten",
+        image: "/assets/images/placeholder.webp",
+        description: "Quis nostrud labore labore id sit."
+    },
+    {
+        id: 11,
+        title: "Title Eleven",
+        image: "/assets/images/placeholder.webp",
+        description: "Quis nostrud labore labore id sit."
+    },
+    {
+        id: 12,
+        title: "Title Twelve",
+        image: "/assets/images/placeholder.webp",
+        description: "Quis nostrud labore labore id sit."
     }
 ]
 

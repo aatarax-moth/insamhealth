@@ -1,7 +1,18 @@
 .maincards {
 max-width: 1800px;
 margin: 4rem auto;
-padding: 0 1rem;
+padding: 0 1rem 4rem 1rem;
+border-bottom: 1px dashed rgba(var(--rgb-darker-blue), 0.5);
+}
+
+.maincards:first-of-type {
+    padding-top: 4rem;
+    border-top: 1px dashed rgba(var(--rgb-darker-blue), 0.5);
+}
+
+.maincards:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 .maincards-title {
@@ -9,6 +20,23 @@ font-size: 2.2rem;
 margin-bottom: 1.5rem;
 text-align: center;
 font-weight: 600;
+color: var(--darker-blue);
+padding: 2rem;
+}
+
+.maincards:first-of-type .maincards-title {
+    background-color: var(--darker-blue);
+    color: var(--main-white);
+}
+
+.maincards:nth-of-type(2) .maincards-title {
+    background-color: var(--darker-green);
+    color: var(--main-white);
+}
+
+.maincards:last-of-type .maincards-title {
+    background-color: var(--bright-blue);
+    color: var(--main-white);
 }
 
 .cards-grid {

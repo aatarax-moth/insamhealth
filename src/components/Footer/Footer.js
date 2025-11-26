@@ -26,17 +26,17 @@ return (
                 <div>
                     <h3>Products</h3>
                     <ul>
-                    <li><a href="#fitness">Fitness Products</a></li>
-                    <li><a href="#supplements">Supplements</a></li>
-                    <li><a href="#bodycare">Body Care Products</a></li>
+                    <li><a href="/Fitness">Fitness Products</a></li>
+                    <li><a href="/Supplements">Supplements</a></li>
+                    <li><a href="/BodyCare">Body Care Products</a></li>
                     </ul>
                 </div>
                 <div>  
                     <h3>Company</h3>
                     <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#newsletter">Subscribe to Our Newsletter</a></li>
+                    <li><a href="/About">About Us</a></li>
+                    <li><a href="/Contact">Contact Us</a></li>
+                    <li><a href="/Newsletter">Subscribe to Our Newsletter</a></li>
                     </ul>
                 </div>
             </div>

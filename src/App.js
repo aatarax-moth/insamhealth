@@ -1,20 +1,30 @@
-import logo from './logo.svg';
+import './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NewsletterTop from './components/NewsletterTop/NewsletterTop.js';
 import Navbar from './components/Navbar/Navbar.js';
-import Hero from './components/Hero/Hero.js';
-import Home from './components/HomeCards/HomeCards.js';
+import Home from './components/Home/Home.js';
 import Footer from './components/Footer/Footer.js';
+
+import FitnessPage from './pages/Fitness.js';
+import SupplementsPage from './pages/Supplements.js';
+import BodyCarePage from './pages/BodyCare.js';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
         <NewsletterTop/>
         <Navbar/>
-        <Hero/>
-        <Home/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Fitness" element={<FitnessPage />} />
+          <Route path="/Supplements" element={<SupplementsPage />} />
+          <Route path="/BodyCare" element={<BodyCarePage />} />
+        </Routes>
         <Footer/>
       </div>
+    </Router>
   );
 }
 
