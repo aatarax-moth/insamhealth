@@ -10,10 +10,10 @@
 
 body {
   background-color: var(--main-white);
-  background-image: url('/public/assets/images/blob-bg.svg');
+  /* background-image: url('/public/assets/images/blob-bg.svg');
   background-attachment: fixed;
   background-blend-mode: multiply;
-  background-size: cover;
+  background-size: cover; */
   position: relative;
 }
 

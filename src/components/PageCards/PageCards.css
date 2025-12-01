@@ -4,12 +4,24 @@
     margin-bottom: 1.5rem;
     color: var(--darker-blue);
     text-align: flex-start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cards-grid-large {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     gap: 2rem;
+}
+
+.card-link {
+    text-decoration: none;
+    color: var(--soft-black);
+}
+
+.card-text {
+    color: var(--darker-green);
 }
 
 .pagination-controls {

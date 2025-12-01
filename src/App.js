@@ -5,6 +5,7 @@ import NewsletterTop from './components/NewsletterTop/NewsletterTop.js';
 import Navbar from './components/Navbar/Navbar.js';
 import Home from './components/Home/Home.js';
 import Footer from './components/Footer/Footer.js';
+import Blog from './components/Blog/Blog.js';
 
 import FitnessPage from './pages/Fitness.js';
 import SupplementsPage from './pages/Supplements.js';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/Fitness" element={<FitnessPage />} />
           <Route path="/Supplements" element={<SupplementsPage />} />
           <Route path="/BodyCare" element={<BodyCarePage />} />
+          <Route path="/:category/:id" element={<Blog />} />
         </Routes>
         <Footer/>
       </div>

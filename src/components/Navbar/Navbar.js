@@ -14,7 +14,7 @@ return (
                         </a>
                         <ul className="navbar-links">
                             <li><Link to="/Fitness">Fitness Products</Link></li>
-                            <li><Link to="/Supplements">Supplements</Link></li>
+                            <li><Link to="/Supplements">Nutrition & Supplements</Link></li>
                             <li><Link to="BodyCare">Body Care Products</Link></li>
                             <li className="button-subscribe"><a href="#subscribe">Subscribe To Our Newsletter</a></li>
                         </ul>
