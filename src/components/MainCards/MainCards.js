@@ -1,13 +1,24 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Container from "../Container/Container.js";
 import "./MainCards.css";
 
-const MainCards = ({ title, data, link }) => {
+const MainCards = ({ title, data, link, category }) => {
   const pageSize = 4;
-  
   const totalPages = Math.ceil(data.length / pageSize);
-
   const [page, setPage] = useState(0);
+
+  // 🚀 Added Slugify Function here so it's available
+  const slugify = (text) => {
+    if (!text) return "";
+    return text
+      .toString()
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]+/g, '')
+      .replace(/--+/g, '-');
+  };
 
   const start = page * pageSize;
   const visibleCards = data.slice(start, start + pageSize);
@@ -15,6 +26,7 @@ const MainCards = ({ title, data, link }) => {
   const handlePageChange = (newPage) => {
     if (newPage >= 0 && newPage < totalPages) {
       setPage(newPage);
+      window.scrollTo(0, 0); // Optional: Scroll up when changing page
     }
   };
 
@@ -24,18 +36,28 @@ const MainCards = ({ title, data, link }) => {
         <h2 className="maincards-title">{title}</h2>
 
         <div className="cards-grid">
-          {visibleCards.map(card => (
-            <div className="card" key={card.id}>
-              <img src={card.image} alt={card.title} className="card-img" />
-              <h3 className="card-title">{card.title}</h3>
-              <p className="card-text">{card.description}</p>
-            </div>
-          ))}
+          {visibleCards.map(card => {
+            // 🚀 Move the slug calculation INSIDE the map
+            const postSlug = slugify(card.title);
+            
+            return (
+              <Link 
+                to={`/${category}/${card.id}/${postSlug}`} 
+                key={card.id} 
+                className="card-link"
+              >
+                <div className="card">
+                  <img src={card.image} alt={card.title} className="card-img" />
+                  <h3 className="card-title">{card.title}</h3>
+                  <p className="card-text">{card.description}</p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
-        {/* 🚀 New Pagination Block Below the Grid */}
+        {/* Pagination Block */}
         <div className="pagination-controls">
-          {/* Previous Page Button */}
           <button 
             onClick={() => handlePageChange(page - 1)}
             disabled={page === 0}
@@ -44,7 +66,6 @@ const MainCards = ({ title, data, link }) => {
             &lt;
           </button>
           
-          {/* Render Page Number Buttons */}
           {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index}
@@ -55,7 +76,6 @@ const MainCards = ({ title, data, link }) => {
             </button>
           ))}
 
-          {/* Next Page Button */}
           <button 
             onClick={() => handlePageChange(page + 1)}
             disabled={page === totalPages - 1}
@@ -65,10 +85,10 @@ const MainCards = ({ title, data, link }) => {
           </button>
         </div>
         
-        {/* The original link button */}
-        <a href={link} className="maincards-button">
+        {/* Changed this to a Link to keep it within React Router */}
+        <Link to={link} className="maincards-button">
           Go To Page
-        </a>
+        </Link>
       </Container>
     </section>
   );

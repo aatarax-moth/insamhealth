@@ -11,18 +11,21 @@ function Home() {
       <MainCards
         title="Fitness Products"
         data={cardsFitness}
+        category="Fitness"
         buttonLink="/fitness"
       />
 
       <MainCards
         title="Supplements"
         data={cardsSupplements}
+        category="Supplements"
         buttonLink="/supplements"
       />
 
       <MainCards
         title="Body Care"
         data={cardsBodyCare}
+        category="BodyCare"
         buttonLink="/bodycare"
       />
     </>

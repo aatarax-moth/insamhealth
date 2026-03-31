@@ -1,6 +1,7 @@
 const blogsFitness = [
     {
       id: 1,
+      slug:"how-to-stay-fit",
       title: "How to Stay Fit When You Don’t Have the Time",
       subtitle: "A quick guide to staying active",
       date: "2025-11-30",
@@ -17,7 +18,7 @@ const blogsFitness = [
           ]
         },
         {
-          title: "Building Consistency with Simple Routines",
+          title: "2. Building Consistency with Simple Routines",
           image: "/assets/images/placeholder.webp",
           content: [
             "Paragraph 1 about creating small, consistent habits...",
@@ -26,7 +27,7 @@ const blogsFitness = [
           ]
         },
         {
-          title: "Staying Motivated Long Term",
+          title: "3. Staying Motivated Long Term",
           image: "/assets/images/placeholder.webp",
           content: [
             "Paragraph 1 about finding internal vs external motivation...",

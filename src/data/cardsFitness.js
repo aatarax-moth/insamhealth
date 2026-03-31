@@ -1,6 +1,7 @@
 const cardsFitness = [
     {
         id: 1,
+        slug:"how-to-stay-fit",
         title: "How to Stay Fit When You Don’t Have the Time",
         image: "/assets/images/placeholder.webp",
         description: "A quick guide to staying active."

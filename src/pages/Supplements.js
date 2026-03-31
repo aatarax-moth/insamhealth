@@ -5,7 +5,7 @@ import cardsSupplements from "../data/cardsSupplements";
 function SupplementsPage() {
     return (
         <>
-            <PageCards data={cardsSupplements} title="Supplements" link="/Supplements"/>
+            <PageCards data={cardsSupplements} title="Supplements" link="/Supplements" category="supplements"/>
         </>
     );
   }

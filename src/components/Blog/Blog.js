@@ -13,18 +13,39 @@ const allBlogs = {
 };
 
 function Blog() {
-  const { category, id } = useParams();
+  // 🚀 Changed 'id' to 'slug' to match your App.js route
+  const { category, id, slug } = useParams();
+  
+  // 🚀 Helper function (Must match the one in PageCards exactly)
+  const slugify = (text) => {
+    return text
+      .toString()
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]+/g, '')
+      .replace(/--+/g, '-');
+  };
 
   const key = category.toLowerCase();
   const posts = allBlogs[key] || [];
-  const post = posts.find((p) => String(p.id) === String(id));
+
+  // DEBUGGING: Add these two lines to see what's happening in your console (F12)
+  console.log("URL Slug:", slug);
+  console.log("First Post Slugified:", posts[0] ? slugify(posts[0].title) : "No posts found");
+
+  const post = posts.find((p) => String(p.id) === String(id)); // Search by ID (very fast and accurate)
 
   if (!post) {
     return (
       <section className="blogpage">
         <Container>
-          <p>Blog post not found.</p>
-          <Link to={`/${category}`}>← Back to {category}</Link>
+          <div className="not-found-container">
+            <h2>Blog post not found.</h2>
+            <Link to={`/${category}`} className="back-link">
+              Back to {category}
+            </Link>
+          </div>
         </Container>
       </section>
     );
@@ -33,7 +54,6 @@ function Blog() {
   return (
     <section className="blogpage">
       <Container className="page-container">
-        {/* Back link uses the dynamic category */}
         <Link to={`/${category}`} className="back-link">
           Back to {category}
         </Link>
@@ -87,13 +107,17 @@ function Blog() {
 
                   {section.title && (
                     <h2 className="blog-section-title">
+                      {section.title_link ? (
                         <a 
-                        href={section.title_link}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                          href={section.title_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                        {section.title}
+                          {section.title}
                         </a>
+                      ) : (
+                        section.title
+                      )}
                     </h2>
                   )}
 
@@ -115,12 +139,16 @@ function Blog() {
             <div className="blog-sidebar-card">
               <h3 className="blog-sidebar-title">More reads</h3>
               <ul className="blog-sidebar-list">
-                <li>
-                  <a href="#link1">Sample related article 1</a>
-                </li>
-                <li>
-                  <a href="#link2">Sample related article 2</a>
-                </li>
+                {/* 🚀 Dynamic related reads from the same category */}
+                {posts.slice(0, 3).map((item) => (
+                  item.title !== post.title && (
+                    <li key={item.id}>
+                      <Link to={`/${category}/${slugify(item.title)}`}>
+                        {item.title}
+                      </Link>
+                    </li>
+                  )
+                ))}
               </ul>
             </div>
           </aside>

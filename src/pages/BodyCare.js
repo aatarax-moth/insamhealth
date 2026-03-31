@@ -5,7 +5,7 @@ import cardsBodyCare from "../data/cardsBodyCare";
 function BodyCarePage() {
     return (
         <>
-            <PageCards data={cardsBodyCare} title="Body Care"/>
+            <PageCards data={cardsBodyCare} title="Body Care" category="bodycare"/>
         </>
     );
   }
